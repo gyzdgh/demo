@@ -260,15 +260,15 @@
     margin-top:-485px;
 }
 .mainPicture{
-    padding-left:21px;
+    padding-left:13px;
     float: left;
 }
 .mainPicture > span{
     display:inline-block;
 }
-.mainPicture > span >img{
+.mainPicture > span > a >img{
     display:inline-block;
-    margin:0 10px;
+    margin:0 12px;
 }
 .picture1{
     position: relative;
