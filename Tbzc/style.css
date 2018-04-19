@@ -3,7 +3,7 @@
      padding:0;
  }
  .head-Board{
-     padding:30px 30px 0 30px;
+     padding:25px 30px 0 30px;
      display: inline-block;
     position: relative;
 }
@@ -34,7 +34,7 @@
 }
 .character{
     float:left;
-    margin-top:-55px;
+    margin-top:-50px;
     margin-right:340px;
 }
 .character > ul {
@@ -81,7 +81,6 @@
 }
 .searchBar{
     display:inline-block;
-    float:right;
 }
 .searchText > input{   
     width:220px;
@@ -156,7 +155,7 @@
 }
 .icon4{
     display: inline;
-    width: 16px;
+    width:16px;
     height:16px;
     position: absolute;
     top:1px;
@@ -168,6 +167,73 @@
     position: relative;
     margin:10px 30px 0 30px;
 }
+.main-list{
+    position: relative;
+}
+.main-list:hover > .main-list-son{
+    display:block;
+}
+.main-list-son{
+    background:#fff;
+    position :absolute;
+    z-index: 99;
+    left:-10px;
+    top:21px;
+    width:100px;
+    display: none;
+}
+.mainDown-list{
+    transition: all 1s;
+}
+.list-first{
+    border-top:1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-right:1px solid #dcdcdc;
+    width:99px;
+    height:35px;
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+    line-height: 40px;
+    margin-left:-40px;
+}
+.list-second{
+    border-top:1px dotted #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-right:1px solid #dcdcdc;
+    width:99px;
+    height:35px;
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+    line-height: 40px;
+    margin-left:-40px;
+}
+.list-third{
+    border-top:1px dotted #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-right:1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    width:99px;
+    height:35px;
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+    line-height: 40px;
+    margin-left:-40px;
+}
+.list-first:hover{
+    color:#fff;
+    background: #22cccd;
+}
+.list-second:hover{
+    color:#fff;
+    background: #22cccd;
+}
+.list-third:hover{
+    color:#fff;
+    background: #22cccd;
+}
 .l-picture{
     float: left;
 }
@@ -178,7 +244,6 @@
     margin-top:20px;
 }
 .r-picture{
-    float: right;
     display: inline;
     position: absolute;
     top:20px;
