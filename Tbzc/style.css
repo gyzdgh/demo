@@ -2,6 +2,9 @@
      margin:0;
      padding:0;
  }
+ ul{
+     list-style: none;
+ }
  .head-Board{
      padding:25px 30px 0 30px;
      display: inline-block;
@@ -34,7 +37,7 @@
 }
 .character{
     float:left;
-    margin-top:-50px;
+    margin-top:-55px;
     margin-right:340px;
 }
 .character > ul {
@@ -84,19 +87,19 @@
 }
 .searchText > input{   
     width:220px;
-    height:30px;
+    height:35px;
     border:1px solid #c8c8c8;
     position: absolute;
-    top:35px;
+    top:20px;
     right: 150px;
     font-size:16px;
     outline: none;
 }
 .searchButtom {
     width:80px;
-    height:34px;
+    height:39px;
     position:absolute;
-    top:35px;
+    top:20px;
     right:70px;
     background: #22cccd;
 }
@@ -104,8 +107,8 @@
     display: inline-block;
     font-size: 18px;
     color:white;
-    padding-top:4px;
-    padding-left:22px;
+    padding-top:7px;
+    padding-left:20px;
 }
 .leadBox{
     display:inline-block;
@@ -146,7 +149,7 @@
     border-bottom: 4px solid #22cccd;
 }
 .right-leadBox{
-    margin-top:-40px;
+    margin-top:-65px;
     margin-left:450px;
     float: right;
 }
@@ -169,9 +172,11 @@
 }
 .main-list{
     position: relative;
+    top:-28px;
 }
 .main-list:hover > .main-list-son{
     display:block;
+    cursor: pointer;
 }
 .main-list-son{
     background:#fff;
@@ -183,7 +188,7 @@
     display: none;
 }
 .mainDown-list{
-    transition: all 1s;
+    transition: all .5s;
 }
 .list-first{
     border-top:1px solid #dcdcdc;
@@ -535,8 +540,421 @@
     top:140px;
     left: 30px;
 }
-
-
+.Category{
+    margin-top:490px;
+    position: relative;
+}
+.Category-title{
+    background-image: 
+    url(./img/xt.png);
+    width:1220px;
+    height:7px;
+    position: absolute;
+    top:40px;
+    left:35px;
+}
+.Category-title .text{
+    display: inline-block;
+    width:135px;
+    height:30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 28px;
+    color:#333;
+    position: absolute;;
+    top:-10px;
+    background-color: #fff;
+    left:530px;
+}
+.Category-title-solgan{
+    text-align: center;
+    color:#8f8f8f;
+    font-size: 14px;
+    position: absolute;
+    top:65px;
+    left:555px;
+}
+.categoryMain{
+    width:1190px;
+    margin-left:35px;
+}
+.floor{
+    font-size: 0;
+    height:20px;
+    line-height:20px;
+    position: absolute;
+    top:83px;
+    margin-bottom: 12px;
+}
+.floor a{
+    color:#5a5a5a;
+    text-decoration: none;
+}
+.floor a:hover{
+    color:#00ccce;
+}
+.floor .num{
+    font-size :14px;
+}
+.floor .name{
+    font-size: 20px;
+    margin-left:3px;
+}
+.floor .icon{
+    font-size: 13px;
+    margin-left: 3px;
+}
+.cateforyNav{
+    margin:0;
+    padding:0;
+    position: relative;
+    top:110px;
+}  
+.cateforyNav .main-img{
+    position: absolute;
+    top:0;
+    left:-67px;
+}
+.main-item{
+    display:block;
+    width:260px;
+    height:63px;
+    color:#fff;
+    position: absolute;
+    z-index: 2;
+    left:20px;
+    top:20px;
+}
+.main-item .name{
+    font-size: 24px;
+    line-height: 24px;
+}
+.main-item .money{
+    font-size: 14px;
+    line-height: 14px;
+    margin-top:10px;
+}
+.main-item .yen{
+    font-style:normal;
+    font-family: arial;
+}
+.main-list{
+    display: block;
+    width:100px;
+    height:31px;
+    background:#fff;
+    line-height: 31px;
+    text-align: center;
+    font-size: 14px;
+    margin-top:19px;
+    cursor: pointer;
+}
+.main-list .text{
+    position: relative;
+    left:25px;
+    font-size: 14px;
+}
+.nav-item1{
+    position: absolute;
+    left:300px;
+    border:1px solid #ededed;
+    height: 370px;
+    width:280px;
+    background-color:#fff;
+}
+.project-area{
+    position: relative;
+    display: block;
+    width:100%;
+    height:184px;
+    overflow: hidden;
+}
+.project-pic{
+    display:block;
+    width:100%;
+    min-height: 184px;
+}
+.project-area .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 187px;
+    background-color: transparent;
+    -webkit-transition: background-color .5s;
+}
+.project-intro{
+    display: block;
+    line-height: 22px;
+    width:250px;
+    font-size:15px;
+    background-color:#fff;
+    color:#2a2a2a;
+    margin:11px 15px;
+    height:42px;
+}
+.tag-con{
+    display: block;
+    width:250px;
+    margin:7px auto 22px;
+    height:23px;
+}
+.tag-con .tag-tag-link{
+    display: inline-block;
+    height:23px;
+    color:#999;
+    line-height: 23px;
+    background-color:#f0f0f0;
+    padding: 0 9px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.tag-tag-link:hover{
+    background-color :#5a5a5a;
+}
+.schedule-bar{
+    height:6px;
+    width:250px;
+    display: block;
+    background-color:#ededed;
+    border-radius: 5px;
+    margin:0 auto;
+}
+.schedule-bar-full{
+    border-radius: 5px;
+    height:6px;
+    display: block;
+    vertical-align: top;
+    background-color:#00cccd;
+}
+.project-schedule{
+    display: block;
+    font-size: 0;
+    margin-top:15px;
+}
+.other-info{
+    display: inline-block;
+}
+.other-info em{
+    font-style: normal;
+    display: inline-block;
+    text-align: center;
+    width:100px;
+}
+.other-info em.info-num{
+    font-size: 14px;
+    line-height: 14px;
+    color:#333;
+}
+.other-info em.info-name{
+    font-size: 12px;
+    line-height: 12px;
+    margin-top:5px;
+    color:#999;
+}
+.info-deal{
+    display: inline-block;
+    width:42px;
+    padding-left: 16px;
+    position: absolute;
+    left:-30px;
+}
+.info-dollar{
+    display: inline-block;
+    width:144px;
+    position: absolute;
+    left:80px;
+}
+.info-support{
+    display: inline-block;
+    width: 55px;
+    padding:22px;
+    position: absolute;
+    left:160px;
+    top:290px;
+}
+.nav-item2{
+    border:1px solid #ededed;
+    position: absolute;
+    left:608px;
+    height:370px;
+}
+.nav-item3{
+    border:1px solid #ededed;
+    position: absolute;
+    left:935px;
+    height:370px;
+}
+.nav-item4{
+    border:1px solid #ededed;
+    position: absolute;
+    top:390px;
+    left:-15px;
+    height:370px;
+}
+.nav-item5{
+    border:1px solid #ededed;
+    position: absolute;
+    top:390px;
+    left:295px;
+    height:370px;
+}
+.nav-item6{
+    border:1px solid #ededed;
+    position: absolute;
+    top:390px;
+    left:605px;
+    height:370px;
+}
+.nav-item7{
+    border:1px solid #ededed;
+    position: absolute;
+    top:390px;
+    right:-30px;
+    height:370px;
+}
+.successproject{
+    position: relative;
+    top:150px;
+    margin-bottom: 40px;
+}
+.success-title{
+    background-image: 
+    url(./img/xt.png);
+    width:1230px;
+    height:7px;
+    position: absolute;
+    top:-50px;
+    left:15px;
+}
+.success-title .text{
+    display: inline-block;
+    width:136px;
+    height:30px;
+    text-align: center;
+    line-height:30px;
+    font-size:28px;
+    color:#333;
+    position: absolute;
+    top:-10px;
+    background-color:#fff;
+    left:565px;
+}
+.success-vice-title{
+    text-align: center;
+    color:#8f8f8f;
+    position: absolute;
+    top:-20px;
+    left:570px;
+    font-size:14px;
+}
+.suc-list-con{
+    border:1px solid #fff;
+    width:1220px;
+    margin:20px auto 0;
+}
+.suc-ul{
+    width:1200px;
+}
+.suc-ul li{
+    float:left;
+    width:280px;
+    height:496px;
+    position: relative;
+    background-color:#f2f3f3;
+    margin-right: 23px;
+    margin-bottom:30px;
+    margin-left:-10px;
+}
+.pic-wrap{
+    display: block;
+    width:280px;
+    height:184px;
+    overflow: hidden;
+}
+.avater{
+    display:block;
+    width:66px;
+    height:66px;
+    overflow: hidden;
+    background:rgba(255,255,255,.6);
+    position: absolute;
+    top:155px;
+    border-radius:50%;
+    left:107px;
+}
+.avater img{
+    width:60px;
+    height:60px;
+    border-radius: 30px;
+    margin:3px;
+}
+.funder-intro .funder-name{
+    font-size:18px;
+    text-align:center;
+    color:#333;
+    line-height: 18px;
+    margin-top: 42px;
+}
+.funder-intro .funder-info{
+    font-size: 12px;
+    color:#999;
+    text-align: center;
+    width:200px;
+    margin:5px auto;
+    height:36px;
+}
+.money-raise{
+    margin-top:20px;
+    font-size: 14px;
+    padding-left:20px;
+}
+.money-raise .textmoney{
+    color:#333;
+}
+.money-raise .colon{
+    margin-left:4px;
+}
+.money-raise .number-money{
+    color:#fe645a;
+    margin:0 4px;
+    font-style: normal;
+}
+.support-number{
+    margin-top:2px;
+    font-size:14px;
+    padding-left:20px;
+}
+.support-text{
+    color:#333;
+}
+.support-colon{
+    margin-left:4px;
+}
+.s-number{
+    color:#fe645a;
+    margin:0 4px;
+    font-style: normal;
+}
+.desc-content{
+    font-size:12px;
+    color:#333;
+    padding:15px 15px 20px 20px;
+    height:55px;
+}
+.link{
+    display: block;
+    width: 143px;
+    height: 34px;
+    margin: 0 auto;
+    background-color: #3cd1d2;
+    text-align: center;
+    line-height: 34px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+}
 
 
 
