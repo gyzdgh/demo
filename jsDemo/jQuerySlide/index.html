@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>轮播重构前</title>
+    <style>
+        .window {
+            width: 300px;
+            height:200px;
+            overflow: hidden;
+        }
+
+        .images {
+            transition: all 0.5s;
+        }
+
+        .images img {
+            vertical-align: top;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="window">
+        <div class="images" id="images">
+            <img src="http://meadtour.com/sites/default/files/styles/photo300x200/public/images/2018-04/411736e6tw1ednc59uwusj20gj0miwhy.jpg?itok=S1-nYg7h"
+                width=300 alt="">
+            <img src="http://m.meadtour.com/sites/default/files/styles/photo300x200/public/images/2018-05/1_278.jpg?itok=IPCFz0Rj" width=300
+                alt="">
+            <img src="http://www.meadtour.com/sites/default/files/styles/photo300x200/public/images/2018-05/9b40e016gy1ffaa4w8husj20u00u0k0j.jpg?itok=SNRjFuS3"
+                width=300 alt="">
+            <img src="http://m.meadtour.com/sites/default/files/styles/photo300x200/public/images/2018-05/1_278.jpg?itok=IPCFz0Rj" width=300
+                alt="">
+        </div>
+    </div>
+    <span id="buttons">
+        <span>第1张</span>
+        <span>第2张</span>
+        <span>第3张</span>
+        <span>第4张</span>
+    </span>
+    <script>
+        //找到所有的button
+        var allButtons = $('#buttons > span');
+
+        //遍历这些button
+        // for (let i = 0; i < allButtons.length; i++) {
+            //当任一个button被点击的时候执行下面函数
+            $('#buttons > span').on('click', function (x) {
+                console.log(1);
+                //找到要显示的图片
+                var index = $(x.currentTarget).index()
+                //通过改变图片位置来改变显示的位置
+                var p = index * -200
+                //改变它的css属性
+                $('#images').css({
+                    transform: 'translateY(' + p + 'px)'
+                })
+                //意思就是下面的按钮对应上面的相应图片
+                n = index
+                //找到第几个
+                activeButton(allButtons.eq(n))
+            })
+        // }
+
+
+        //自动轮播
+
+        var n = 0;
+        var size = allButtons.length
+        //找到相应的按钮触发它们的点击事件
+        allButtons.eq(n % size).trigger('click')
+            
+        //重复调用下面行为
+        var timerId = setTimer()
+
+        function setTimer(){
+            return setInterval(() => {
+                n += 1
+                allButtons.eq(n % size).trigger('click')
+                    .addClass('blue')
+                    .siblings('.blue').removeClass('blue')
+            }, 1000)
+        }
+        function activeButton($button){
+            $button
+                .addClass('blue')
+                .siblings('.blue').removeClass('blue')
+        }
+        //当鼠标移上去的时候取消自动点击
+        $('.window').on('mouseenter', function () {
+            window.clearInterval(timerId)
+        })
+        //当鼠标离开的时候继续执行上面调用的行为
+        $('.window').on('mouseleave', function () {
+           timerId = setTimer()
+        })
+    </script>
+</body>
+
+</html>
