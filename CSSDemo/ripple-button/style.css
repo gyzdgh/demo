@@ -1,0 +1,42 @@
+.rippleButton{
+    box-sizing:border-box;
+    display:inline-block;
+    background:none;
+    height: 30px;
+    line-height: 30px;
+    border-radius:2px;
+    padding:0 16px;
+    text-decoration: none;
+    border:none;
+    transition:all 0.5s;
+    position:relative;
+    background:blue;
+    overflow:hidden;
+    z-index:0;
+}
+.rippleButton:hover{
+    background:#e5e5e5;
+}
+.rippleButton:focus{
+    outline:none;
+    background:#e5e5e5;  
+}
+.ripple{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:grey;
+    margin-left:-5px;
+    margin-top:-5px;
+    transition:transform 0.5s;
+    visibility: hidden;
+    pointer-events:none;
+    z-index: -1;
+}
+.rippleButton> .ripple.active{
+    transform:scale(10);
+    visibility:visible;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>jQuery API</title>
+    <style>
+        .red{
+            color:red;
+         }
+    </style>
+</head>
+<body>
+    <body>
+        <div>内容1</div>
+        <div>内容2</div>
+        <div>内容3</div>
+        <div>内容4</div>
+        <div>内容5</div>
+    </body> 
+    <script>
+        window.jQuery = function (node) {
+                var findNode = document.querySelectorAll(node)
+                return {
+                    addClass: function (addClassName) {
+                        for (let i = 0; i < findNode.length; i++) {
+                            findNode[i].classList.add(addClassName)
+                        }
+                    },
+                    setText: function (text) {
+                        for (let i = 0; i < findNode.length; i++) {
+                            findNode[i].textContent = text
+                        }
+                    }
+                }
+            }
+            window.$ = jQuery;
+            var $div = $('div')
+            $div.addClass('red')
+            $div.setText('hi') 
+    </script>
+</body>
+</html>
