@@ -8,16 +8,21 @@
     <style>
         .window {
             width: 300px;
-            height:200px;
+            height: 200px;
             overflow: hidden;
         }
 
         .images {
-            transition: all 0.5s;
+            position: relative;
+            width: 300px;
+            height: 200px;
         }
 
         .images img {
             vertical-align: top;
+            position: absolute;
+            opacity: 0;
+            transition: all 1s;
         }
 
         .blue {
@@ -50,24 +55,28 @@
         var allButtons = $('#buttons > span');
 
         //遍历这些button
-        // for (let i = 0; i < allButtons.length; i++) {
-            //当任一个button被点击的时候执行下面函数
-            $('#buttons > span').on('click', function (x) {
-                console.log(1);
-                //找到要显示的图片
-                var index = $(x.currentTarget).index()
-                //通过改变图片位置来改变显示的位置
-                var p = index * -200
-                //改变它的css属性
-                $('#images').css({
-                    transform: 'translateY(' + p + 'px)'
-                })
-                //意思就是下面的按钮对应上面的相应图片
-                n = index
-                //找到第几个
-                activeButton(allButtons.eq(n))
-            })
-        // }
+        //当任一个button被点击的时候执行下面函数
+        $('#buttons > span').on('click', function (x) {
+            console.log(1);
+            //找到要显示的图片
+            var index = $(x.currentTarget).index()
+            //通过改变图片位置来改变显示的位置
+            var p = index * -200
+            //改变它的css属性
+            // $('#images').css({
+            //     transform: 'translateY(' + p + 'px)'
+            // })
+            $('#images >img').css({
+                opacity:0
+            });
+            $('#images >img').eq(index).css({
+                opacity:1
+            });
+            //意思就是下面的按钮对应上面的相应图片
+            n = index
+            //找到第几个
+            activeButton(allButtons.eq(n))
+        })
 
 
         //自动轮播
@@ -76,19 +85,17 @@
         var size = allButtons.length
         //找到相应的按钮触发它们的点击事件
         allButtons.eq(n % size).trigger('click')
-            
+
         //重复调用下面行为
         var timerId = setTimer()
 
-        function setTimer(){
+        function setTimer() {
             return setInterval(() => {
                 n += 1
                 allButtons.eq(n % size).trigger('click')
-                    .addClass('blue')
-                    .siblings('.blue').removeClass('blue')
             }, 1000)
         }
-        function activeButton($button){
+        function activeButton($button) {
             $button
                 .addClass('blue')
                 .siblings('.blue').removeClass('blue')
@@ -99,7 +106,7 @@
         })
         //当鼠标离开的时候继续执行上面调用的行为
         $('.window').on('mouseleave', function () {
-           timerId = setTimer()
+            timerId = setTimer()
         })
     </script>
 </body>
