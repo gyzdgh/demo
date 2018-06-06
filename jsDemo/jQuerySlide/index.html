@@ -4,7 +4,7 @@
 <head>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <meta charset="utf-8">
-    <title>轮播重构前</title>
+    <title>轮播重构后</title>
     <style>
         .window {
             width: 300px;
@@ -57,12 +57,11 @@
         //遍历这些button
         //当任一个button被点击的时候执行下面函数
         $('#buttons > span').on('click', function (x) {
-            console.log(1);
             //找到要显示的图片
             var index = $(x.currentTarget).index()
-            //通过改变图片位置来改变显示的位置
-            var p = index * -200
-            //改变它的css属性
+            // //通过改变图片位置来改变显示的位置
+            // var p = index * -200
+            // 改变它的css属性
             // $('#images').css({
             //     transform: 'translateY(' + p + 'px)'
             // })
