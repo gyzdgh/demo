@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <button value="red">
+    <!-- <button value="red">
         变红
     </button>
     <button value="green">
@@ -31,37 +31,30 @@
     </button>
     <button value="grey">
         变灰
-    </button>
-    <!-- <input type="button" value="变红">
+    </button> -->
+    <input type="button" value="变红">
     <input type="button" value="变绿">
-    <input type="button" value="变灰"> -->
+    <input type="button" value="变灰">
     <span id="text">JavaScript 原生提供Object对象（注意起首的O是大写），本章介绍该对象原生的各种方法。</span>
     <script>
-        var btn = document.getElementsByTagName('button');
+        var btn = document.getElementsByTagName('input');
         var t = document.getElementById("text");
-        btn[0].addEventListener("click", changeStyle, true);
-        btn[1].addEventListener("click", changeStyle, true);
-        btn[2].addEventListener("click", changeStyle, true);
-        function changeStyle(s) {
-            t.className = s.target.value;
+        btn[0].addEventListener("click", changeStyle);
+        btn[1].addEventListener("click", changeStyle);
+        btn[2].addEventListener("click", changeStyle);
+        function changeStyle(e) {
+            // t.className = s.target.value;
 
-            // var className = '';
-            // if (e.target.value === '变红') {
-            //     t.className = 'red';
-            //     // className='red';
-            // }
-            // if (e.target.value === '变绿') {
-            //     t.className = 'green';
-            //     // className='green';
-
-            // }
-            // if (e.target.value === '变灰') {
-            //     t.className = 'grey';
-            //     // className='grey';
-
-            // }
-            // t.className = className;
-
+            var className = '';
+            if (e.target.value === '变红') {
+                t.className = 'red';
+            }
+            if (e.target.value === '变绿') {
+                t.className = 'green';
+            }
+            if (e.target.value === '变灰') {
+                t.className = 'grey';
+            }
         };
 
     </script>
