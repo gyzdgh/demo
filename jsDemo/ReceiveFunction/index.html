@@ -8,35 +8,32 @@
     <link rel="icon" href="./t.ico" type="image/x-icon">
     <link rel="shortcut icon" href="./t.ico" type="image/x-icon">
     <style>
-        body{
-            text-align: center;
-        }
-        button{
-            cursor: pointer;
-        }
+       body{
+           text-align:center;
+       }
+       button{
+           cursor: pointer;
+       }
     </style>
 </head>
 <body>
-    <p>
-        <input type="text" value="杭州市">
-    </p>
-    <p>
-        <input type="text" value="西湖区">
-    </p>
-    <p>
-        <button>传参</button>
-    </p>
-    
+   <p>
+       <input type="text" value="北京市">
+   </p>
+   <P>
+       <input type="text" value="朝阳区">
+   </P>
+    <button>传参</button>
     <script>
        var myfn = function(a,b){
            alert(a.value);
-           alert(b.value);
+           alert(b.value)
        };
        window.onload = function(){
-           var Input = document.getElementsByTagName('input');
-           var btn = document.getElementsByTagName('button')[0];
+           var Input = document.getElementsByTagName("input");
+           var btn = document.getElementsByTagName("button")[0];
            btn.onclick = function(){
-               myfn(Input[0],Input[1]);
+               myfn(Input[0],Input[1])
            }
        };
     </script>

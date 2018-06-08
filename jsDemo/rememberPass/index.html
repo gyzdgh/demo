@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>记住密码提示框</title>
+    <style>
+        #out{
+            width:200px;
+            margin:10px auto;
+            font-size: 20px;
+            font-family: kai;
+        }
+        input{
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        #tips{
+            padding:5px;
+            margin-top:5px;
+            background:#999;
+            border:1px solid blue;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="out">
+        <label>
+            <input type="checkbox">
+            两周内登陆
+        </label>
+        <div id="tips">为了您的财产安全，请不要在网吧或公共场合使用该功能</div>
+    </div>
+    <script>   
+       window.onload = function(){
+           var oTip = document.getElementById("tips");
+           var oLabel = document.getElementsByTagName("label")[0];
+           oLabel.onmouseover = function(){
+               oTip.style.display = "block"
+           }
+           oLabel.onmouseout = function(){
+               oTip.style.display = "none"
+           }
+       }
+    </script>
+</body>
+</html>
