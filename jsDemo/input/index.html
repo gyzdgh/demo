@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度输入法</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul{list-style-type: none;}
+        a{text-decoration: none;}
+        button{cursor: pointer;}
+        #out{
+            width:70px;
+            margin:10px auto;
+        }
+        #img{
+            margin-top:5px;
+            background:#fff;
+            border:1px solid grey;
+            display:none;
+        }
+        #img li{
+            width:100%;
+            line-height: 22px;
+            display:inline-block;
+            vertical-align:top;
+        }
+        #close{
+            border-top:1px solid grey;
+        }
+        #img li a{
+            color:grey;
+            padding:0 5px;
+            display:block;
+            font-size:12px;
+        }
+        #img li a:hover{
+            color:#fff;
+            background:grey;
+        }
+    </style>
+</head>
+<body>
+    <div id="out">
+        <button>输入法</button>
+        <ul id="img">
+            <li>
+                <a href="javascript:;">手写</a>
+            </li>
+            <li>
+                <a href="javascript:;">拼音</a>
+            </li>
+            <li id="close">
+                <a href="javascript:;">关闭</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+       window.onload = function(){
+           var oBtn = document.getElementsByTagName("button")[0];
+           var oImg = document.getElementById("img")
+           var oClo = document.getElementById("close")
+           var style = oImg.style;
+           oBtn.onclick = function(){
+               style.display = style.display == "block" ? "none" : "block"
+           }
+           oClo.onclick = function(){
+               style.display = "none"
+           }
+       };
+    </script>
+</body>
+</html>
