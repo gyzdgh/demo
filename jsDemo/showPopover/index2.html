@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .popover_parent {
+            position: relative;
+            display: inline-block;
+        }
+
+        .popover {
+            display: none;
+            background: #F4F4F4;
+            padding: 1em;
+            border-radius: 4px;
+            position: absolute;
+            top: 4em;
+            z-index: 1;
+            width: 200px;
+            color: #333;
+        }
+
+        .popover:before {
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: -20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-bottom: 10px solid #F4F4F4;
+        }
+
+        .active .popover {
+            display: block;
+        }
+
+        .active>a {
+            background: #47E0A4!important;
+            cursor: pointer;
+        }
+
+        section {
+            border-radius: 4px;
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 3em;
+        }
+
+        .caret {
+            margin-top: .5em;
+            margin-left: .5em;
+            display: inline-block;
+            width: 0;
+            height: 0;
+            vertical-align: top;
+            border-top: 5px solid #FFF;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            content: "";
+            opacity: .5;
+            filter: alpha(opacity=30);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1em;
+            background: #F26767;
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="popover_parent">
+            <a href="javascript:void(0);" class="btn">A Button
+                <span class="caret"></span>
+            </a>
+            <div class="popover">Child</div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        $('.popover_parent a').on('click', function () {
+                console.log(1)
+                $(this).parent().toggleClass('active');
+            });
+
+           // Hide the dropdown when clicked off
+            $(document).on('click touchstart', function (event) {
+                if (!$(event.target).closest('.popover_parent').length) {
+                    console.log($(event.target));
+
+                    // Hide the menus.
+                    $('.popover_parent.active').removeClass('active');
+                }
+            });
+           
+    </script>
+
+</body>
+
+</html>

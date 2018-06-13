@@ -13,18 +13,27 @@
         <div  id="popover" class="popover">
           我是浮层</div>
     </div>
+   
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
         $('#clickme').on('click',function(e){
+            console.log(1)
             e.stopPropagation()
+           // $('#popover').toggle()
+           if($('#popover').css("display") === "none"){
             $('#popover').show()
+           }else{
+            $('#popover').hide()
+           }
         })
-
+       
         $(document).on('click',function(e){
+            console.log(2) 
             if($(e.target).attr('id') !== 'popover'){
                 $('#popover').hide()
-            }
+            }           
         })
+        $('Body').css("background-color","red")
     </script>
 </body>
 </html>
