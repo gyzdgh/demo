@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>按钮浮层</title>
     <style>
         .popover_parent {
             position: relative;
             display: inline-block;
         }
-
         .popover {
             display: none;
             background: #F4F4F4;
@@ -87,7 +86,7 @@
             <a href="javascript:void(0);" class="btn">A Button
                 <span class="caret"></span>
             </a>
-            <div class="popover">Child</div>
+            <div class="popover">I am a floating layer</div>
         </div>
     </section>
 
@@ -95,16 +94,11 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
         $('.popover_parent a').on('click', function () {
-                console.log(1)
                 $(this).parent().toggleClass('active');
             });
 
-           // Hide the dropdown when clicked off
             $(document).on('click touchstart', function (event) {
                 if (!$(event.target).closest('.popover_parent').length) {
-                    console.log($(event.target));
-
-                    // Hide the menus.
                     $('.popover_parent.active').removeClass('active');
                 }
             });
