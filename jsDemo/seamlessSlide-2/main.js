@@ -13,17 +13,17 @@ $(previous).on('click', function () {
     goToSlide(current - 1)
 })
 
-let timer = setInterval(function () {
-    goToSlide(current + 1)
-}, 2000)
+// let timer = setInterval(function () {
+//     goToSlide(current + 1)
+// }, 2000)
 
-$('.window').on('mouseenter', function () {
-    window.clearInterval(timer)
-}).on('mouseleave', function () {
-    timer = setInterval(function () {
-        goToSlide(current + 1)
-    }, 2000)
-})
+// $('.window').on('mouseenter', function () {
+//     window.clearInterval(timer)
+// }).on('mouseleave', function () {
+//     timer = setInterval(function () {
+//         goToSlide(current + 1)
+//     }, 2000)
+// })
 
 function bindEvents() {
     $('#buttonWrapper').on('click', 'input', function (e) {

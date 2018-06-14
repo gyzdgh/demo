@@ -24,10 +24,20 @@ body{
     bottom:5px;
     left:100px;
 }
-#buttonWrapper > input,
-#controls > input{
+#buttonWrapper > input{
     cursor: pointer;
 }
-#controls{
-    margin-top:-20px;
+svg{
+    background:#f4f4f4;
+    border-radius: 50%;
+}
+.icon:nth-child(1){
+    position: fixed;
+    top:115px;
+    left:492px;
+}
+.icon:nth-child(2){
+    position: fixed;
+    top:115px;
+    left:765px;
 }

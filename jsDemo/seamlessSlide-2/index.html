@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://at.alicdn.com/t/font_707723_dwg1d8dvgsh.js"></script>
     <title>无缝轮播-2</title>
+    <style type="text/css">
+        .icon {
+           width: 1.5em; height: 1.5em;
+           vertical-align: -0.15em;
+           fill: currentColor;
+           overflow: hidden;
+           cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="window">
@@ -22,9 +32,15 @@
             <input type="button" value="4">
         </div>
     </div>
-    <div id="controls" style="text-align:center;">
-        <input id="previous" type="button" value="上一张">
-        <input id="next" type="button" value="下一张">
+    <div id="controls">
+        <svg id="previous" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-previous"></use>
+        </svg>
+        <svg  id="next" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-next"></use>
+        </svg>
+        <!-- <input id="previous" type="button" value="上一张">
+        <input id="next" type="button" value="下一张"> -->
     </div>
     
     <script src="./jquery-3.3.1.js"></script>
