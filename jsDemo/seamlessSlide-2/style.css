@@ -32,12 +32,11 @@ svg{
     border-radius: 50%;
 }
 .icon:nth-child(1){
-    position: fixed;
-    top:115px;
-    left:492px;
+    position: absolute;
+    top:86px;
 }
 .icon:nth-child(2){
-    position: fixed;
-    top:115px;
-    left:765px;
+    position: absolute;
+    top:86px;
+    left:275px;
 }
