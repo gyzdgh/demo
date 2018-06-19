@@ -1,0 +1,55 @@
+body,div,ul,li,h2{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style-type: none;
+}
+#out{
+    width:560px;
+    border:1px solid #333;
+    margin:10px auto;
+    padding:0 0 10px 10px;
+}
+#out h2{
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin-top:10px;
+}
+#out ul:after{
+    content:'.';
+    display:block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#out ul{
+    zoom:1;
+}
+#out ul li{
+    position: relative;
+    float: left;
+    border:1px solid #333;
+    margin:10px 10px 0 0 ;
+}
+#out ul li img{
+    position: absolute;
+    top:-14px;
+    left:-14px;
+    display:none;
+    border:2px solid #999;
+    cursor: crosshair;
+}
+#out ul li a{
+    color:#666;
+    width:80px;
+    height:80px;
+    display:block;
+    background:#f0f0f0;
+    text-decoration: none;
+    padding:10px;
+}
+.zindex{
+    z-index: 1;
+}
