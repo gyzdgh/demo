@@ -45,10 +45,10 @@
     <div id="out">
         <button>输入法</button>
         <ul id="img">
-            <li>
+            <li id="w">
                 <a href="javascript:;">手写</a>
             </li>
-            <li>
+            <li id="p">
                 <a href="javascript:;">拼音</a>
             </li>
             <li id="close">
@@ -61,12 +61,21 @@
            var oBtn = document.getElementsByTagName("button")[0];
            var oImg = document.getElementById("img")
            var oClo = document.getElementById("close")
+           var oLi = document.getElementsByTagName("li")
+        //    var oW = document.getElementById("w");
+        //    var oP = document.getElementById("p");
            var style = oImg.style;
            oBtn.onclick = function(){
                style.display = style.display == "block" ? "none" : "block"
            }
            oClo.onclick = function(){
                style.display = "none"
+           }
+           oLi[0].onclick = function(){
+               alert('这是手写')
+           }
+           oLi[1].onclick = function(){
+               alert('这是拼音')
            }
        };
     </script>
