@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+            text-align:center;
+        }
+        input{
+            font:12 arial;
+            cursor: pointer;
+            padding:0 10px;
+        }
+    </style>
+    <title>按钮自加</title>
+</head>
+<body>
+    <input type="button" value="0">
+
+    <script>
+        window.onload = function(){
+            aBtn = document.getElementsByTagName("input")[0];
+            var i=0;
+            aBtn.onclick = function(){
+                aBtn.value = ++i;
+                // alert(i)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输入两个数字比大小</title>
+    <style>
+        body{text-align: center;}
+        .f-text{
+            width:100px;
+            border:1px solid #ccc;
+            background:#f0f0f0;
+            padding-left:3px;
+            outline: none;
+        }
+        .f-btn{
+            margin:0 10px;
+            cursor: pointer;
+        }
+        strong{
+            padding:0 10px;
+        }
+        span{
+            font-weight: 700;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="f-text">
+    <strong>vs</strong>
+    <input type="text" class="f-text">
+    <input type="button" value="最大的数是>>" class="f-btn">
+    <span>?</span>
+
+    <script>
+        window.onload = function(){
+            var aInput = document.getElementsByTagName("input");
+            var aSpan = document.getElementsByTagName("span")[0];
+            var i = 0;
+           for(var i=1;i<aInput-1;i++){
+               aInput[i].onkeyup = function(){
+                   this.value = this.value.replace(/[^\d]/,"")
+               }
+           }
+           aInput[2].onclick = function(){
+               (aInput[0].value == "" || aInput[1].value == "") ?
+               alert('请输入数字：') :
+               (aSpan.innerHTML = Math.max(aInput[0].value,aInput[1].value))
+           }
+        }
+    </script>
+</body>
+</html>
