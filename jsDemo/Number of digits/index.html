@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断数字个数</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .f-text{
+            width:100px;
+            border:1px solid #ccc;
+            background:#f0f0f0;
+            padding:3px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="f-text">
+    <input type="button" value="是否是两位数">
+
+    <script>
+        window.onload = function(){
+            var aInput = document.getElementsByTagName("input");
+            var i = 0;
+            aInput[0].onkeyup = function(){
+                this.value = this.value.replace(/[^\d]/,"")
+            }
+            aInput[1].onclick = function(){
+                (aInput[0].value == "") ?
+                alert('请输入数字:') :
+                //test用来查看正则表达式与匹配的字符串是否匹配
+                alert(/^\d{2}$/.test(parseInt(aInput[0].value)) ? "这是两位数" : "这是" + aInput[0].value.length + "位数")
+            }
+        }
+    </script>
+</body>
+</html>
