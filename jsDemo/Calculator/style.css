@@ -1,0 +1,63 @@
+body,div ,ul,li,input{margin:0; padding:0;}
+ul{list-style-type: none;}
+a{color:black;outline: none;text-decoration: none;}
+#cal{
+    font-size: 22px;
+    position: relative;
+    width:300px;
+    background:#8b8b8b;
+    margin:10px auto;
+}
+#cal .f-text{
+    border:0;
+    width:290px;
+    height:84px;
+    text-align: right;
+    font-size:55px;
+    background-color:#8b8b8b;
+    padding:0 5px;
+    color:white;
+}
+#cal ul{
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+    padding:0 0 17px 8px;
+}
+#cal ul li{
+    float: left;
+    width:63px;
+    height:41px;
+    margin:17px 10px 0 0 ;
+}
+#cal ul li a{
+    display:block;
+    width:63px;
+    height:41px;
+    line-height: 41px;
+    text-align: center;
+    background-color:#e0e0e0;
+}
+#cal ul li a.active{
+    background: grey;
+}
+#cal ul li.btn-3{
+    width:136px;
+}
+#cal ul li.btn-3 a{
+    width:136px;
+    background-position: 0 -82px;
+}
+#cal ul li.btn-2 a{
+    height: 99px;
+    line-height: 99px;
+}
+#formula{
+    position: absolute;
+    top:0;
+    background: none;
+    border:0;
+    width:290px;
+    padding:0 5px 0 5px;
+    text-align: right;
+}
