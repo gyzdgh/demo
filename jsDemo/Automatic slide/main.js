@@ -53,7 +53,7 @@ window.onload = function ()
         for(i=0;i<aNum.length;i++) aNum[i].className = "";
         //把它们的class设为current
         aNum[index].className = "current";
-        // clearInterval(timer);
+        clearInterval(timer);
 
         //遍历每个图片项，把它们的透明度设为0
         for(i=0;i<aImg.length;i++){
