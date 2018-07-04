@@ -46,6 +46,7 @@ window.onload = function () {
     function fnPoint(iArg){
         //分数赋值
         iScore = iArg || iStar;
+        //遍历li，给它添加class类
         for(i = 0; i<aLi.length;i++) aLi[i].className = i < iScore ? "on" : "";
     }
 };
