@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{text-align: center;font-size: 30px;}
+        pre{
+            color:green;
+            padding:10px 15px;
+            background:#f0f0f0;
+            border:1px dotted #333;
+            font-size: 12px;
+            text-align: left;
+        }
+
+    </style>
+    <title>用户按下键盘，显示keyCode</title>
+</head>
+
+<body>
+    <pre>
+         &lt;script type="text/javascript"&gt; window.onload = function () { var oP = document.getElementsByTagName("p")[0]; document.onkeydown
+        = function (event) { var event = event || window.event; oP.innerHTML = event.keyCode; return false } } &lt;/script&gt;
+    </pre>
+    <p>这里将显示你按下键的key</p>
+
+    <script>
+        window.onload = function(){
+            var oP = document.getElementsByTagName("p")[0];
+            document.onkeydown = function(event){
+                var event = event || window.event;
+                console.log(event)
+                oP.innerHTML = event.key;
+                return 
+            }
+        };
+
+    </script>
+</body>
+
+</html>
