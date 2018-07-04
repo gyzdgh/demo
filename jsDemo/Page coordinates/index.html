@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        pre{
+            color:green;
+            padding:10px 15px;
+            background:#f0f0f0;
+            border:1px dotted #333;
+            font-size: 13px;
+        }
+
+    </style>
+    <title>显示单击的坐标</title>
+</head>
+
+<body>
+    <pre>
+         &lt;script type="text/javascript"&gt; var event = event || window.event; alert("坐标：[" + event.clientX + ", " + event.clientY
+        + "]") &lt;/script&gt;
+
+    </pre>
+    <script>
+        document.onclick = function(event){
+            var event = event || widow.event;
+            alert("坐标:["+ event.clientX + ","+ event.clientY +"]")
+        }
+    </script>
+</body>
+
+</html>
