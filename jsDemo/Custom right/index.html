@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body,ul,li{margin:0;padding:0;}
+        #menu{
+            position:absolute;
+            top:-9999px;
+            left:-9999px;
+            width:100px;
+            border-radius: 3px;
+            list-style-type: none;
+            border:1px solid #8f8f8f;
+            padding:2px;
+            background:#fff;
+        }
+        #menu li{
+            position:relative;
+            height:24px;
+            padding-left: 24px;
+            background:#eaead7;
+            vertical-align: top;
+        }
+        #menu li a{
+            display: block;
+            color:#333;
+            background:#fff;
+            padding-left: 5px;
+            text-decoration: none;
+        }
+        #menu li.active{background:#999;}
+        #menu li.active a{color:#fff; background:#8f8f8f;}
+        #menu li em{position:absolute;top:0;left: 0;width:24px;height: 24px;background:url(./ico.png) no-repeat}
+        #menu li em.cut{background-position: 0 0 ;}
+        #menu li em.copy{background-position: 0 -24px;}
+        #menu li em.paste{background-position: 0 -48px;}
+    </style>
+    <title>自定义右键菜单</title>
+</head>
+<body>
+    <center>自定义右键菜单，请在页面点击右键查看效果.</center>
+    <ul id="menu" style="display:none;">
+        <li>
+            <em class="cut"></em>
+            <a href="javascript:;">剪切</a>
+        </li>
+        <li>
+            <em class="copy"></em>
+            <a href="javascript:;">复制</a>
+        </li>
+        <li>
+            <em class="paste"></em>
+            <a href="javascript:;">粘贴</a>
+        </li>
+    </ul>
+
+    <script>
+        window.onload = function(){
+            var oMenu = document.getElementById("menu");
+            var oLi = oMenu.getElementsByTagName("li");
+            //加载后隐藏自定义右键菜单
+            oMenu.style.display = "none";
+            //菜单鼠标移入/移除样式
+            for(var i=0;i<oLi.length;i++){
+                //鼠标移入样式
+                oLi[i].onmouseover = function(){
+                    this.className = "active"
+                };
+                //鼠标移出样式
+                oLi[i].onmouseout = function(){
+                    this.className = ""
+                };
+            };
+            //自定义菜单
+            document.oncontextmenu = function(event){
+                var event = event || window.event;
+                var style = oMenu.style;
+                style.display = "block";
+                style.top = event.clientY + "px";
+                style.left = event.clientX + "px";
+                return false
+            };
+            //页面点击后自定义菜单消失
+            document.onclick = function(){
+                oMenu.style.display = "none"
+            };
+        }
+    </script>
+</body>
+</html>
