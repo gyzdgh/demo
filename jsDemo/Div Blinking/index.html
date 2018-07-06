@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #box{
+            position:absolute;
+            top:50%;
+            left: 50%;
+            color:#fff;
+            width:200px;
+            height: 200px;
+            background:blue;
+            cursor: pointer;
+            letter-spacing: 5px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 200px;
+            margin:-100px 0 0 -100px;
+        }
+    </style>
+    <title>Div闪烁</title>
+</head>
+<body>
+    <div id="box">点我就会闪</div>
+
+    <script>
+        window.onload = function(){
+            var oBox = document.getElementById("box");
+            //初始化timer
+            var timer = null;
+            oBox.onclick = function(){
+                var i = 0;
+                // clearInterval(timer);
+                timer = setInterval(function(){
+                    oBox.style.display = i++ % 2 ? "none" : "block";
+                    i > 8 && (clearInterval(timer))
+                },80)
+            }
+        };
+    </script>
+</body>
+</html>
