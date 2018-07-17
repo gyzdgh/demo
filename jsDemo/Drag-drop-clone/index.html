@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽 -- clone</title>
+    <style>
+        body,div{margin:0;padding:0;}
+        body{background: #3e3e3e;}
+        div{
+            position:absolute;
+            width:100px;
+            height:100px;
+            cursor: move;
+            border:1px solid #888;
+            background:#000;
+        }
+        #drag1{
+            top:100px;
+            left: 100px;
+        }
+        #drag2{
+            top:100px;
+            left:300px;
+        }
+        #temp{
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
+    </style>
+</head>
+<body>
+    <div id="drag1"></div>
+    <div id="drag2"></div>
+
+
+    <script>
+        var zIndex = 1;
+        window.onload = function(){
+            var oDrag1 = document.getElementById("drag1");
+            var oDrag2 = document.getElementById("drag2");
+            drag(oDrag1);
+            drag(oDrag2);
+        };
+
+        //拖拽函数
+        function drag(oDrag){
+            //初始化x，y的值为0;
+            var disX = dixY = 0;
+            
+            oDrag.onmousedown = function(event){
+                var event = event || window.event;
+                //设置点击的x，y的坐标
+                disX = event.clientX - this.offsetLeft;
+                disY = event.clientY - this.offsetTop;
+                //页面生成一个 temp div
+                var oTemp = document.createElement("div");
+                oTemp["id"] = "temp";
+                oTemp.style.left = this.currentStyle ? this.currentStyle["left"] : 
+                getComputedStyle(this,null)["left"];
+                oTemp.style.top = this.currentStyle ? this.currentStyle["top"] : 
+                getComputedStyle(this,null)["top"];
+                oTemp.style.zIndex = zIndex++;
+                console.log(oTemp.style.zIndex)
+                document.body.appendChild(oTemp);
+
+
+                document.onmousemove = function(event){
+                    var event = event || window.event;
+                    var iL = event.clientX - disX;
+                    var iT = event.clientY - disY;
+                    var maxL = document.documentElement.clientWidth - oDrag.offsetWidth;
+                    var maxT = document.documentElement.clientHeight - oDrag.offsetHeight;
+
+                    //防止溢出屏幕
+                    iL <= 0 && (iL = 0);
+                    iT <= 0 && (iT = 0);
+                    iL >= maxL && (iL = maxL);
+                    iT >= maxT && (iT = maxT);
+                    oTemp.style.left = iL + "px";
+                    oTemp.style.top = iT + "px";
+                    return false;
+                }
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    oDrag.style.left = oTemp.style.left;
+                    oDrag.style.top = oTemp.style.top;
+                    oDrag.style.zIndex = oTemp.style.zIndex;
+                    document.body.removeChild(oTemp);
+                    //释放鼠标捕获
+                    oDrag.releaseCapture && oDrag.releaseCapture();
+                }
+                //设置鼠标捕获
+                this.setCapture && this.setCapture();
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
