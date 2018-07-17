@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>自定义的滚动条</title>
+</head>
+<body>
+    
+    <div id="box">
+        <div class="list">
+            <ul style="width:1520px;">
+                <li>
+                    <img src="./imgs/1.jpg">
+                    <p>iPhone 4</p>
+                </li>
+                <li>
+                    <img src="./imgs/2.jpg">
+                    <p>iPad 2</p>
+                </li>
+                <li>
+                    <img src="./imgs/3.jpg">
+                    <p>iPod touch</p>
+                </li>
+                <li>
+                    <img src="./imgs/4.jpg">
+                    <p>iPod classis</p>
+                </li>
+                <li>
+                    <img src="./imgs/5.jpg">
+                    <p>iPod shuffle</p>
+                </li>
+                <li>
+                    <img src="./imgs/6.jpg">
+                    <p>iPod nano</p>
+                </li>
+                <li>
+                    <img src="./imgs/7.jpg">
+                    <p>MackBook Air</p>
+                </li>
+                <li>
+                    <img src="./imgs/8.jpg">
+                    <p>MackBook Pro</p>
+                </li>
+                <li>
+                    <img src="./imgs/9.jpg">
+                    <p>Mac Mini</p>
+                </li>
+                <li>
+                    <img src="./imgs/10.jpg">
+                    <p>Mac Pro</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="scrollBar">
+            <div class="barL barLStop"></div>  
+            <div class="barM">
+                <div class="bar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+                </div>
+            </div>
+            <div class="barR"></div>
+        </div>
+    </div>
+
+    <dl id="desc">
+        <dt>功能说明：</dt>
+        <dd>① 拖动滚动条，图片列表缓冲滑动至目标点；</dd>
+        <dd>② 滚动条两端鼠标移入自动滑动；</dd>
+        <dd>③ 滚动条滑动到两端自动更换为停止标识；</dd>
+        <dd>④ 点击滚动条黑色背景区，滚动条及图片列表缓冲滑动至目标点；</dd>
+        <dd>⑤ 支持键盘左右键；</dd>
+        <dd>⑥ 支持鼠标滚轮。</dd>
+    </dl>
+
+    <script src="./main.js"></script>
+</body>
+</html>
