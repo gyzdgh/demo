@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+}
+header{
+    background:#eee;
+}
+h1{
+    padding:10px;
+}
+.loading{
+    position: relative;
+    height:3px;
+    background:#eee;
+}
+.loading::before{
+    content:'';
+    display: black;
+    height:100%;
+    width:100px;
+    background-image: linear-gradient(to right, #eee,red,blue,#eee);
+    position: absolute;
+    top:0;
+    left:0;
+    animation: moving 5s linear infinite alternate;
+}
+@keyframes moving{
+    0%{
+        left:0;
+    }
+    100%{
+        left:calc(100% - 100px);
+    }
+}
+
