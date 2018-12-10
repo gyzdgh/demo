@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+        }
+
+        canvas {
+            cursor: pointer;
+            display: block;
+        }
+    </style>
+    <title>烟花效果</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+
+    <script>
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+
+        //设置基本变量
+        var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        //全屏尺寸
+        cw = window.innerWidth,
+        ch = window.innerHeight,
+        //烟花集合
+        fireWorks = [],
+        //粒子集合
+        particles = [],
+        //开始色调
+        hue = 120,
+
+        //每五个循环一次
+        limiterTotal = 5,
+        limiterTick = 0,
+
+        //发布烟花的时间，每八十个循环一次
+        timerTotal = 80,
+        timerTick = 0,
+        mousedown = false,
+
+        //鼠标x，y的坐标
+        mx,
+        my;
+
+        //设置画布的尺寸
+        canvas.width = cw;
+        canvas.height = ch;
+
+        //得到一个范围内的随机数
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        //计算两点之间的距离
+        function calculateDistance(p1x, p1y, p2x, p2y) {
+            var xDistance = p1x - p2x;
+            yDistance = p1y - p2y;
+            return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+        }
+
+        //创造烟花
+        function FireWork(sx, sy, tx, ty) {
+            //实际坐标
+            this.x = sx;
+            this.y = sy;
+            //起始坐标
+            this.sx = sx;
+            this.sy = sy;
+            //目标坐标
+            this.tx = tx;
+            this.ty = ty;
+            //从起点到目标的距离
+            this.distanceToTarget = calculateDistance(sx, sy, tx, ty);
+            this.distanceTraveled = 0;
+
+            this.coordinates = [];
+            this.coordinateCount = 3;
+            //使用当前坐标填充初始坐标
+            while (this.coordinateCount--) {
+                this.coordinates.push([this.x, this.y]);
+            }
+            this.angle = Math.atan2(ty - sy, tx - tx);
+            this.speed = 2;
+            this.acceleration = 1.05;
+            this.brightness = random(50, 70);
+            //圆目标指标半径
+            this.targetRadius = 1;
+        }
+
+        //更新烟花
+        FireWork.prototype.update = function (index) {
+            //删除坐标数组的最后一项
+            this.coordinates.pop();
+            //将当前坐标添加到数组的开头
+            this.coordinates.unshift([this.x, this.y]);
+
+            //循环圆目标指示器半径
+            if (this.targetRadius < 8) {
+                this.targetRadius += 0.3;
+            } else {
+                this.targetRadius = 1;
+            }
+
+            //加快烟花
+            this.speed *= this.acceleration;
+
+            //根据角度和速度获得当前速度
+            var vx = Math.cos(this.angle) * this.speed;
+            vy = Math.sin(this.angle) * this.speed;
+
+            this.distanceTraveled = calculateDistance(this.sx, this.sy, this.x + vx, this.y + vy);
+
+            if (this.distanceTraveled >= this.distanceToTarget) {
+                createParticles(this.tx, this.ty);
+                fireWorks.splice(index, 1);
+            } else {
+                this.x += vx;
+                this.y += vy;
+            }
+        }
+
+        //画烟花
+        FireWork.prototype.draw = function () {
+            ctx.beginPath();
+            ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
+            ctx.lineTo(this.x, this.y);
+            ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
+            ctx.stroke();
+            ctx.beginPath();
+            //用脉冲圆圈绘制烟花的目标
+            ctx.arc(this.tx, this.ty, this.targetRadius, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        //创造粒子
+        function Particle(x, y) {
+            this.x = x;
+            this.y = y;
+            this.coordinates = [];
+            this.coordinateCount = 5;
+            while (this.coordinateCount--) {
+                this.coordinates.push([this.x, this.y]);
+            }
+
+            this.angle = random(0, Math.PI * 2);
+            this.speed = random(1, 10); x
+            //摩擦会减少粒子的速度
+            this.friction = 0.95;
+            this.gravity = 1;
+            //设置色调
+            this.hue = random(hue - 20, hue + 20);
+            this.brightness = random(50, 80);
+            this.alpha = 1;
+
+            //设置粒子消失的速度
+            this.decay = random(0.015, 0.03);
+        }
+
+        //更新粒子
+        Particle.prototype.update = function (index) {
+            // 删除坐标数组的最后一项
+            this.coordinates.pop();
+            // 将当前坐标添加到数组的开头
+            this.coordinates.unshift([this.x, this.y]);
+            // 减慢粒子
+            this.speed *= this.friction;
+            // 应用速度
+            this.x += Math.cos(this.angle) * this.speed;
+            this.y += Math.sin(this.angle) * this.speed + this.gravity;
+            // 淡出粒子
+            this.alpha -= this.decay;
+
+            // 在 alpha 足够低时移除粒子
+            if (this.alpha <= this.decay) {
+                particles.splice(index, 1);
+            }
+        }
+
+        // 画粒子
+        Particle.prototype.draw = function () {
+            ctx.beginPath();
+            //移动到集合中的最后一个跟踪坐标，然后绘制一条线到当前的x和y
+            ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[
+                this.coordinates.length - 1][1]);
+            ctx.lineTo(this.x, this.y);
+            ctx.strokeStyl = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
+            ctx.stroke();
+        }
+
+        //创建粒子组/爆炸
+        function createParticles(x, y) {
+            var particleCount = 30;
+            while (particleCount--) {
+                particles.push(new Particle(x, y));
+            }
+        }
+
+        //主要演示循环
+        function loop() {
+            //这个函数使用 requestAnimationFrame 无休止的循环
+            requestAnimFrame(loop);
+            //随着时间的推移获得不同颜色的烟花
+            hue += 0.5;
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0,5)';
+            ctx.fillRect(0, 0, cw, ch);
+            ctx.globalCompositeOperation = 'lighter';
+
+            //循环遍历每个烟花，绘制它，更新它
+            var i = fireWorks.length;
+            while (i--) {
+                fireWorks[i].draw();
+                fireWorks[i].update(i);
+            }
+
+            //循环遍历每个粒子，绘制它，更新它
+            var i = particles.length;
+            while (i--) {
+                particles[i].draw();
+                particles[i].update(i);
+
+            }
+
+            //当鼠标未关闭时，发射粒子到随机位置坐标
+            if (timerTick >= timerTotal) {
+                if (!mousedown) {
+                    fireWorks.push(new FireWork(cw / 2, ch, random(0, cw), random(0, ch / 2)));
+                    timerTick = 0;
+                }
+            } else {
+                timerTick++;
+            }
+
+            //限制鼠标停时启动烟花的速率
+            if(limiterTick >= limiterTotal){
+                if(mousedown){
+                    //在屏幕底部中间开始烟花，然后将当前鼠标坐标设置为目标
+                    fireWorks.push(new FireWork(cw / 2,ch ,mx, my));
+                    limiterTick = 0;
+                }
+            }else{
+                limiterTick++;
+            }
+        }
+
+        //鼠标事件绑定
+        //更新 mousemove 上的鼠标坐标
+        canvas.addEventListener('mousemove',function(e){
+            mx = e.pageX - canvas.offsetLeft;
+            my = e.pageY - canvas.offsetTop;
+        });
+
+        //切换 mousedown 并防止选择画布
+        canvas.addEventListener('mousedown',function(e){
+            e.preventDefault();
+            mousedown = true;
+        })
+
+        canvas.addEventListener('mouseup',function(e){
+            e.preventDefault();
+            mousedown = false;
+        });
+
+        window.onload = loop;
+
+    </script>
+</body>
+
+</html>
