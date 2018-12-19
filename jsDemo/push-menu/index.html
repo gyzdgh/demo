@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>项目推送</title>
+</head>
+<body>
+    
+    <nav id="menu">
+        <div class="brand">&Aopf;</div>
+        <ul>
+            <li><a href="#">项目1</a></li>
+            <li><a href="#">项目2</a></li>
+            <li><a href="#">项目3</a></li>
+        </ul>
+    </nav>
+    <div class="page-wrap">
+        <button id="menu-toggle"></button>
+        <div class="container">
+            <h2>Javascript push menu</h2>
+        </div>
+    </div>
+
+    <script>
+        // 使用类的一些方法
+        function hasClass(ele, cls){
+            return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+        }
+
+        function addClass(ele, cls){
+            if(!hasClass(ele, cls)) ele.className += " " + cls;
+        }
+
+        function removeClass(ele, cls){
+            if(hasClass(ele, cls)){
+                var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+                ele.className = ele.className.replace(reg, '')
+            }
+        }
+
+        function init(){
+            document.getElementById("menu-toggle").addEventListener("click", toggleMenu);
+        }
+
+        //实际功能
+        function toggleMenu(){
+            var ele = document.getElementsByTagName("body")[0];
+            if(!hasClass(ele, "open")){
+                addClass(ele, "open")
+            }else{
+                removeClass(ele, "open")
+            }
+        }
+
+        //加载文档之前阻止函数运行
+        document.addEventListener("readystatechange", function(){
+            if(document.readyState === "complete"){
+                init();
+            }
+        })
+    </script>
+</body>
+</html>
