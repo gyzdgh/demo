@@ -111,7 +111,7 @@
                 nav[1].addEventListener('click', Pagination.Next, false);
             },
 
-
+            //创造框架
             Create: function (e) {
 
                 var html = [
@@ -125,6 +125,7 @@
                 Pagination.Buttons(e);
             },
 
+            
             Init: function (e, data) {
                 Pagination.Extend(data);
                 Pagination.Create(e);
@@ -132,6 +133,7 @@
             }
         };
 
+        //初始化
         var init = function () {
             Pagination.Init(document.getElementById('pagination'), {
                 size: 30, // pages size

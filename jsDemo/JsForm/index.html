@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Js表单</title>
+</head>
+<body>
+    
+    <div id="main">
+        <h2>使用JavaScript联系表单</h2>
+        <div id="form_sample"></div>
+    </div>
+
+    <script>
+        
+        // 通过ID获取变量中的HTML元素
+        var x = document.getElementById("form_sample");
+        //创建新的表单元素
+        var createform = document.createElement("form");
+        //在表单上设置操作属性
+        createform.setAttribute("action", "")
+        //设置表单上的方法属性
+        createform.setAttribute("method", "post");
+        x.appendChild(createform);
+
+        //表单的标题
+        var heading = document.createElement("h2");
+        heading.innerHTML = "联系表单";
+        createform.appendChild(heading);
+
+        //标题后的水平线
+        var line = document.createElement("hr")
+        createform.appendChild(line);
+
+        var linebreak = document.createElement("br")
+        createform.appendChild(linebreak);
+
+        //为名称字段创建标签
+        var namelabel = document.createElement("label");
+        //设置字段标签
+        namelabel.innerHTML = "姓名:";
+        createform.appendChild(namelabel);
+
+        //为输入框字段创建标签
+        var inputelement = document.createElement("input");
+        inputelement.setAttribute("type", "text");
+        inputelement.setAttribute("name", "dname");
+        createform.appendChild(inputelement);
+
+        var linebreak = document.createElement("br")
+        createform.appendChild(linebreak);
+
+        //为email创建标签
+        var emaillabel = document.createElement("label");
+        emaillabel.innerHTML = "邮箱:"
+        createform.appendChild(emaillabel);
+
+        //创建email输入框
+        var emailelement = document.createElement("input");
+        emailelement.setAttribute("type", "text");
+        emailelement.setAttribute("name", "demail");
+        createform.appendChild(emailelement);
+
+        var emailbreak = document.createElement("br");
+        createform.appendChild(emailbreak);
+
+        //附加 textarea
+        var messagelabel = document.createElement("label")
+        messagelabel.innerHTML = "留言:"
+        createform.appendChild(messagelabel);
+
+        var textareaelement = document.createElement("textarea");
+        textareaelement.setAttribute("name", "dmessage");
+        createform.appendChild(textareaelement);
+
+        var messagebreak = document.createElement("br");
+        createform.appendChild(messagebreak);
+
+        //附加提交按钮
+        var submitelement = document.createElement("input");
+        submitelement.setAttribute("type", "submit");
+        submitelement.setAttribute("name", "dsubmit");
+        submitelement.setAttribute("value", "提交");
+        createform.appendChild(submitelement);
+    </script>
+</body>
+</html>
