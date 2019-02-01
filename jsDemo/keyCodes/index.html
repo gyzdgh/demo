@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>键盘代码</title>
+</head>
+<body>
+    
+    <div class="wrapper" id="wrapper">
+        <h1>Press Any Key</h1>
+        <div id="showKey" class="show-key"></div>
+    </div>
+
+    <script>
+    
+        var KeyCode = function(){
+            var wrapper = document.getElementById('wrapper');
+
+            function init(){
+                bindings();
+            }
+
+            function bindings(){
+                getKey();
+            }
+
+            function getKey(){
+                document.addEventListener('keydown', function(e){
+                    e.preventDefault();
+                    showKey(e.keyCode);
+                })
+            }
+
+            function showKey(KeyCode){
+                // show Key
+                document.getElementById('showKey').innerHTML = KeyCode;
+
+                //更改语法中的键代码
+                var getHolders = document.getElementsByTagName('span');
+                for(i = 0;i<getHolders.length;i++){
+                    getHolders[i].innerHTML = keyCode;
+                }
+            }
+            return {
+                init: init
+            }
+        }();
+
+        KeyCode.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+
+
+
+html, body {
+    height: 100%;
+}
+
+*,
+*:before, 
+*:after {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #ff512f, #f09819);
+    background-size: auto 100%;
+    font: normal 300 13px/16px Lato;
+}
+
+.wrapper{
+    height:100%;
+}
+
+h1{
+    font-weight: 100;
+    font-size: 90px;
+    text-align: center;
+    width:100%;
+    color:rgba(255,255,255, .5);
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.show-key{
+    font-size: 300px;
+    position: absolute;
+    text-align: center;
+    font-weight: 300;
+    width:100%;
+    color:rgba(255,255,255, .5);
+    top:50%;
+    transform: translateY(-50%);
+}
+
+
