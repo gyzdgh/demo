@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>长下拉列表</title>
+</head>
+
+<body>
+    <h1>长下拉列表</h1>
+    <nav>
+        <ul class="dropdown">
+            <li class="drop"><a href="#">Really Tall Menu</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Lorem</a></li>
+                    <li><a href="#">Ipsum</a></li>
+                    <li><a href="#">Dolor</a></li>
+                    <li><a href="#">Lipsum</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                    <li><a href="#">Duis</a></li>
+                    <li><a href="#">Lipsum</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                    <li><a href="#">Duis</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="#">Kinda Tall Menu</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Lorem</a></li>
+                    <li><a href="#">Ipsum</a></li>
+                    <li><a href="#">Dolor</a></li>
+                    <li><a href="#">Lipsum</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                    <li><a href="#">Duis</a></li>
+                    <li><a href="#">Lipsum</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                    <li><a href="#">Duis</a></li><li><a href="#">Lipsum</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                    <li><a href="#">Duis</a></li>
+                </ul>
+            </li>
+            <li class="drop"><a href="#">Average Menu</a>
+                <ul class="sub_menu">
+                    <li><a href="#">Lorem</a></li>
+                    <li><a href="#">Ipsum</a></li>
+                    <li><a href="#">Dolor</a></li>
+                    <li><a href="#">Lipsum</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                </ul>
+            </li>
+            <li><a href="#">No Menu</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        var maxHeight = 400;
+        $(function () {
+            $(".dropdown > li").hover(function () {
+                var $container = $(this);
+                $list = $container.find("ul");
+                $anchor = $container.find("a");
+                height = $list.height() * 1.1;  //确保底部有足够的空间
+                multiplier = height / maxHeight;   //如果列表高则快速的移动
+
+                //在这里保存高度，以便它可以在mouseout时恢复
+                $container.data("origHeight", $container.height());
+                //在下拉列表打开时保留它的翻转颜色
+                $anchor.addClass("hover");
+                //确保下拉列表直接显示在父列表项下方
+                $list
+                    .show()
+                    .css({
+                        paddingTop: $container.data("origHeight")
+                    })
+
+                //如果列表短于最大值则不做任何动画
+                if (multiplier > 1) {
+                    $container
+                        .css({
+                            height: maxHeight,
+                            overflow: "hidden"
+                        })
+                        .mousemove(function (e) {
+                            var offset = $container.offset();
+                            var relativeY = ((e.pageY - offset.top) * multiplier) - ($container.data("origHeight") * multiplier);
+                            if (relativeY > $container.data("origHeight")) {
+                                $list.css("top", -relativeY + $container.data("origHeight"));
+                            };
+                        })
+                }
+            }, function () {
+
+                var $el = $(this);
+
+                // put things back to normal
+                $el
+                    .height($(this).data("origHeight"))
+                    .find("ul")
+                    .css({ top: 0 })
+                    .hide()
+                    .end()
+                    .find("a")
+                    .removeClass("hover");
+
+            });
+        })
+    </script>
+</body>
+
+</html>
