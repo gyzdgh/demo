@@ -55,7 +55,6 @@
         </ul>
     </nav>
 
-
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
@@ -95,10 +94,7 @@
                         })
                 }
             }, function () {
-
                 var $el = $(this);
-
-                // put things back to normal
                 $el
                     .height($(this).data("origHeight"))
                     .find("ul")
@@ -107,7 +103,6 @@
                     .end()
                     .find("a")
                     .removeClass("hover");
-
             });
         })
     </script>
