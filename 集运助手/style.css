@@ -1,0 +1,514 @@
+/* 初始样式 */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+/* 顶部导航 */
+
+.top {
+    background-color: #0081FE;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    top: 0;
+    transition:all 1s;
+}
+
+.top_main {
+    width: 1190px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.top_left {
+    background: no-repeat url(./切图/logo.png);
+    background-size: contain;
+    width: 152px;
+    height: 47px;
+    margin: 53px 0 35px 33px;
+}
+
+.top_right {
+    margin-left: 500px;
+    margin-top: 82px;
+    display: flex;
+}
+
+
+.registered{
+    display: none;
+    
+}
+
+.log_in{
+    margin-left: 18px!important;
+}
+.top_right span {
+    font-size: 18px;
+    color: #fff;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.active{
+    background-color:#FFFFFF;
+    height: 93px;
+}
+.active .top_left{
+    margin:23px 0 0 33px;
+    background: no-repeat url(./切图/logo副本.png);
+    background-size: contain;
+    width: 152px;
+    height: 47px;
+}
+.active .top_right{
+    margin-top: auto;
+    line-height: 93px;
+}
+.active .top_right .registered > span{
+    color:#005DDE;
+}
+.active .registered{
+    display: flex;
+}
+.active .top_right span:hover{
+    background-color: #005DDE;
+    color:#fff!important;
+    cursor: pointer;
+}
+.active .top_right span{
+    color: #5B5B5B;
+    display: inline-block;
+}
+
+/* banner */
+
+.banner {
+    background:url(./切图/banner.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 575px;
+    position: relative;
+    margin-top: 135px;
+}
+.banner_main{
+    width:1190px;
+    margin:0 auto;
+}
+.login{
+    width:290px;
+    background-color: #fff;
+    padding-top:52px;
+    float:right;
+    padding-left: 32px;
+}
+.login_title{
+    font-size: 42.85px;
+    color:#0081FE;
+    font-weight: bold;
+    display: block;
+    line-height: 1.2;
+
+}
+.login_in{
+    font-size: 24px;
+    color:#0081FE;
+}
+.login p{
+    font-size: 18px;
+    color:#666666;
+    margin-top:20px;
+    margin-bottom: 15px;
+}
+.input input{
+    padding:14px 90px 14px 15px;
+    background-color: #F7F7F7;
+    border:none;
+}
+.input input:last-child{
+    margin-top:20px;
+}
+.button{
+    width:230px;
+    height:45px;
+    border:none;
+    background-color: #0081FE;
+    margin-top:30px;
+    color:#fff;
+    font-size: 20px;
+}
+.login_mess{
+    margin-top:20px;
+}
+.password{
+    font-size: 14px;
+    color:#999999;
+  
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+}
+
+.login_icon{
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 35px;
+}
+.clear{
+    clear: both;
+}
+.login_icon span{
+    font-size: 14px;
+    color:#0081FF;
+}
+
+/* banner_mess */
+.banner_mess{
+    background-color: #005DDE;
+    opacity: 0.9;
+    /* margin-top: 60px; */
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.mess_list{
+    width: 1190px;
+    margin: 0 auto;
+    display: flex;
+    padding:13px 0;
+}
+.mess_list div{
+    margin:0 40px;
+    display: flex;
+    line-height: 50px;
+}
+.moving{
+    color:#fff;
+    font-size: 24px;
+    vertical-align: middle;
+}
+.mess_list div > p {
+    font-size: 20px;
+    color:#fff;
+    vertical-align: middle;
+}
+.mess_list div a{
+    font-size: 36px;
+    color:#00D100;
+    line-height: 50px;
+    vertical-align: middle;
+}
+
+/* 内容块1 */
+
+.content_list{
+    background-color: #F6F6F6;
+
+}
+.content{
+    width: 1190px;
+    margin: 0 auto;
+    padding:30px 0;
+    display: flex;
+}
+.content_mess{
+    background-color: #ffffff;
+    width: 290px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    padding:53px 48px 75px 38px;
+    text-align: center;
+}
+.right{
+    margin-right: 10px;
+}
+.content_mess img{
+    width: 58px;
+    height: 58px;
+    margin:0 auto;
+}
+.span_1{
+    font-size: 22.6px;
+    color:#0081FF;
+    margin-top:30px;
+   
+}
+.span_2{
+    font-size: 24px;
+    color:#0081FF;
+    font-weight: bold;
+    margin-left: 7px;
+}
+.content_mess p{
+    font-size: 16px;
+    color:#666666;
+    margin-top:7px;
+    text-align: left;
+}
+
+/* 运输界面 */
+.transport{
+    background-color: #DFF0FB;
+    position: relative;
+}
+.transport::after{
+    content: '';
+    width: 20%;
+    position: absolute;
+    height: 100%;
+    background: #c8e7fb;
+    right: 0;
+    top: 0;
+}
+.transport_main{
+    width:1190px;
+    margin:0 auto;
+    position: relative;
+    z-index: 2;
+}
+.trans_banner{
+    background:no-repeat url(./切图/banner2.png);
+    height: 520px;
+}
+
+.trans_content{
+    width: 590px;
+    padding:108px 15px 77px 33px;
+    position: absolute;
+    left:0;
+    top: 0;
+}
+
+.trans_detail{
+    display: flex;
+    flex-direction: column;
+}
+
+.trans_detail img{
+    width: 75px;
+    height: 54px;
+}
+.trans_detail span{
+    font-size: 32px;
+    color: #0081FF;
+    font-weight: bold;
+    margin-top:25px;
+}
+.trans_detail p{
+    font-size: 20px;
+    color:#0081FF;
+}
+.trans_mess{
+    display: flex;
+    margin-top:65px;
+}
+.total{
+    width:80px;
+    height: 80px;
+}
+.trans_mess p{
+    font-size: 18px;
+    color:#3E3E3E;
+}
+.trans_mess p img{
+    width:18px;
+    height: 14px;
+}
+.img_left{
+    width:18px;
+    height: 14px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* 经营界面 */
+.operate_main{
+    width: 1190px;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.operate_banner{
+    background:no-repeat url(./切图/jingying.png);
+    width:630px;
+    margin-top: 92px;
+}
+.operate_content{
+    padding:108px 0 77px 33px;
+    
+}
+.operate_detail{
+    display: flex;
+    flex-direction: column;
+}
+.operate_detail img{
+    width: 75px;
+    height: 54px;
+}
+.operate_detail span{
+    font-size: 32px;
+    color: #0081FF;
+    font-weight: bold;
+    margin-top:25px;
+}
+.operate_detail p{
+    font-size: 16px;
+    color:#0081FF;
+    
+}
+
+/* @font-face{
+    font-family: 'YaHei Consolas Hybrid';
+    src : url('../fonts/yaheiconsolashybrid.ttf');
+} */
+
+.operate_mess{
+    display: flex;
+    margin-top:65px;
+}
+.operate_mess p{
+    font-size: 18px;
+    color:#666666;
+}
+
+/* 资金页面 */
+.funds{
+    background-color: #72B7FF;
+}
+.funds_banner{
+    background:no-repeat url(./切图/zijin.png);
+    width:596px;
+    /* height: 445px; */
+    margin-left: 30px;
+    margin-top:40px;
+}
+.funds_main{
+    width:1190px;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.funds_content{
+    width: 590px;
+    padding:108px 15px 77px 33px;
+}
+.funds_detail{
+    display: flex;
+    flex-direction: column;
+}
+.funds_detail img{
+    width: 75px;
+    height: 54px;
+}
+.funds_detail span{
+    font-size: 32px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-top:25px;
+}
+
+.funds_detail p{
+    font-size: 18px;
+    color:#FFFFFF;
+}
+.funds_mess{
+    display: flex;
+    margin-top:65px;
+}
+
+.funds_mess p{
+    font-size: 18px;
+    color:#FFFFFF;
+}
+
+/* 底部 */
+.footer{
+    background-color: #223246;
+}
+.footer_main{
+    width: 1190px;
+    margin:0 auto;
+    padding:66px 108px 123px 32px;
+    display: flex;
+}
+.footer_icon{
+    display: flex;
+}
+.footer_left{
+    margin-top:10px;
+}
+.footer_left img{
+    width: 152px;
+}
+.qr_code{
+    width: 152px !important;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -76px;
+    margin-bottom: 8px;
+    display: none;
+}
+.icon_8:hover .qr_code,
+.icon_9:hover .qr_code,
+.icon_10:hover .qr_code{
+    display: block;
+}
+.icon_8{
+    margin-left: 100px;
+    position: relative;
+}
+.icon_8 img{
+    width: 65px;
+}
+.icon_9{
+    margin-left: 20px;
+    position: relative;
+}
+.icon_9 img{
+    width: 65px;
+}
+.icon_10{
+    margin-left: 20px;
+    position: relative;
+}
+.icon_10 img{
+    width: 65px;
+}
+.footer_mess{
+    margin-left: 105px;
+}
+.footer_mess_content{
+    margin-top: -15px;
+}
+.footer_mess .footer_mess_content img{
+    width: 23px;
+    vertical-align: middle;
+}
+.footer_2,
+.footer_3{
+    margin-left: 35px;
+}
+.footer_mess .footer_mess_content span{
+    color:#fff;
+    font-size: 18px;
+    vertical-align: middle;
+}
+.copyright_number{
+    margin-top: 30px;
+}
+
+.copyright_number span{
+    font-size: 15px;
+    color:#77879F;
+}
